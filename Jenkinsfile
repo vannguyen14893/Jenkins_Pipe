@@ -1,3 +1,4 @@
+String branchName = env.BRANCH_NAME
 pipeline {
     agent {
         docker {
@@ -6,13 +7,10 @@ pipeline {
     }
     stages {
         stage('Build') {
-        steps {
-        git branchName:'master' , url: 'https://github.com/vannguyen14893/Jenkins_Pipe.git'
-
-                     }
-                    steps {
+                 steps {
+                        echo 'Cloning files from (branch: "' + branchName + '" )'
                         sh 'mvn clean install'
-                    }
+                  }
          }
     }
 }
