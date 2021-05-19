@@ -1,4 +1,3 @@
-String branchName = env.BRANCH_NAME
 pipeline {
     agent {
         docker {
@@ -6,11 +5,16 @@ pipeline {
         }
     }
     stages {
+
         stage('Build') {
                  steps {
-                        echo 'Cloning files from (branch: "' + branchName + '" )'
-                        sh 'mvn clean install'
+                        sh """
+                        mvn clean install
+                        mv /var/lib/jenkins/workspace/jenkin_pipe2/target/demo.jar /home/ndvan/java/test
+                        java -jar /home/ndvan/java/test/demo.jar
+                        """
                   }
          }
     }
 }
+
