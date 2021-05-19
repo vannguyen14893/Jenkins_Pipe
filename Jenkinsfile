@@ -10,7 +10,7 @@ pipeline {
                  steps {
                         sh """
                         mvn clean install
-                        mv /var/lib/jenkins/workspace/jenkin_pipe2/target/demo.jar /home/ndvan/java/test
+                        mv /var/lib/jenkins/workspace/jenkin_pipe_multi_branch_test/target/demo.jar /home/ndvan/java/test
                         java -jar /home/ndvan/java/test/demo.jar
                         """
                   }
