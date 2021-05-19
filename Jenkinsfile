@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
         steps {
-        git 'master': branchName, url: 'https://github.com/vannguyen14893/Jenkins_Pipe.git'
+        git branchName:'master' , url: 'https://github.com/vannguyen14893/Jenkins_Pipe.git'
 
                      }
                     steps {
